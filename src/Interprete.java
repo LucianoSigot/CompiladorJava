@@ -4,12 +4,12 @@ public class Interprete {
     public void ejecutar(NodoMain main) {
         System.out.println("\n--- INICIANDO INTÉRPRETE ---");
 
-        // 1. Guarda las declaraciones en memoria[cite: 3]
+        // 1. Guarda las declaraciones en memoria
         for (NodoDeclaracion d : main.declaraciones) {
             tabla.declarar(d.id, d.tipo);
         }
 
-        // 2. Ejecuta las sentencias matemáticas[cite: 3]
+        // 2. Ejecuta las sentencias matemática
         for (Sentencia s : main.sentencias) {
             if (s instanceof NodoAsignacion) {
                 NodoAsignacion asig = (NodoAsignacion) s;
@@ -32,7 +32,7 @@ public class Interprete {
         tabla.imprimirMemoria();
     }
 
-    // Método recursivo para resolver ecuaciones de abajo hacia arriba[cite: 3]
+    // Método recursivo para resolver ecuaciones de abajo hacia arriba
     private Object evaluar(Expresion expr) {
         if (expr instanceof NodoNumero) return ((NodoNumero) expr).valor;
         if (expr instanceof NodoBooleano) return ((NodoBooleano) expr).valor;
