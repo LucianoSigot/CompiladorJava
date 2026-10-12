@@ -32,7 +32,7 @@ Espacio = [ \t\r\n]+
 "true"    { return new Symbol(Sym.TRUE, yyline, yycolumn); }
 "false"   { return new Symbol(Sym.FALSE, yyline, yycolumn); }
 
-// Operadores y delimitadores[cite: 1]
+// Operadores y delimitadores
 "+"       { return new Symbol(Sym.MAS, yyline, yycolumn); }
 "*"       { return new Symbol(Sym.POR, yyline, yycolumn); }
 "="       { return new Symbol(Sym.IGUAL, yyline, yycolumn); }
@@ -42,7 +42,7 @@ Espacio = [ \t\r\n]+
 "{"       { return new Symbol(Sym.LLA_IZQ, yyline, yycolumn); }
 "}"       { return new Symbol(Sym.LLA_DER, yyline, yycolumn); }
 
-// Variables y constantes numéricas (envían su valor al parser)[cite: 1]
+// Variables y constantes numéricas (envían su valor al parser)
 {Identificador} { return new Symbol(Sym.ID, yyline, yycolumn, yytext()); }
 {Numero}        { return new Symbol(Sym.NRO, yyline, yycolumn, Integer.parseInt(yytext())); }
 
